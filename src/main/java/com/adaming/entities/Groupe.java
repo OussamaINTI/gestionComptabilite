@@ -22,6 +22,8 @@ public class Groupe implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String code;
+	private String libelle;
 
 	@OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
@@ -54,8 +56,48 @@ public class Groupe implements Serializable {
 		this.societes = societes;
 	}
 
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
 	public Groupe() {
 
+	}
+
+	public Groupe(Long id, String code, String libelle, Set<Societe> societes, Adresse adresse) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.libelle = libelle;
+		this.societes = societes;
+		this.adresse = adresse;
+	}
+
+	public Groupe(String code, String libelle, Set<Societe> societes, Adresse adresse) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.societes = societes;
+		this.adresse = adresse;
+	}
+
+	public Groupe(String code, String libelle, Set<Societe> societes) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.societes = societes;
 	}
 
 }
