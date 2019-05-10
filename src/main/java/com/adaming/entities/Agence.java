@@ -22,6 +22,8 @@ public class Agence implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String code;
+	private String libelle;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "societe", referencedColumnName = "id")
@@ -35,8 +37,34 @@ public class Agence implements Serializable {
 	@JoinColumn(name = "adresse", referencedColumnName = "id")
 	private Adresse adresse;
 
-	public Long getId() {
-		return id;
+	public Agence() {
+
+	}
+
+	public Agence(Long id, String code, String libelle, Societe societe, Set<Employee> employees, Adresse adresse) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.libelle = libelle;
+		this.societe = societe;
+		this.employees = employees;
+		this.adresse = adresse;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	public void setId(Long id) {
@@ -65,10 +93,6 @@ public class Agence implements Serializable {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
-	}
-
-	public Agence() {
-
 	}
 
 }
