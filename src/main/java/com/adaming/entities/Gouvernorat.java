@@ -18,6 +18,8 @@ public class Gouvernorat implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	private String libelle;
 
 	@OneToMany(mappedBy = "gouvernorat")
 	private Set<Ville> villes = new HashSet<>();
@@ -47,6 +49,14 @@ public class Gouvernorat implements Serializable {
 
 	public void setPays(Pays pays) {
 		this.pays = pays;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	public Gouvernorat() {
