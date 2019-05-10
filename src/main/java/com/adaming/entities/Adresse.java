@@ -20,6 +20,7 @@ public class Adresse implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String rue;
 	private Groupe groupe;
 
 	@OneToMany(mappedBy = "adresse")
@@ -89,4 +90,30 @@ public class Adresse implements Serializable {
 
 	}
 
+	public String getRue() {
+		return rue;
+	}
+
+	public void setRue(String rue) {
+		this.rue = rue;
+	}
+
+	public Adresse(Long id, String rue, Groupe groupe, Set<Agence> agences, Set<Societe> societes,
+			Set<Employee> employees, Ville ville) {
+		super();
+		this.id = id;
+		this.rue = rue;
+		this.groupe = groupe;
+		this.agences = agences;
+		this.societes = societes;
+		this.employees = employees;
+		this.ville = ville;
+	}
+
+	public Adresse(String rue) {
+		super();
+		this.rue = rue;
+	}
+
+	
 }
