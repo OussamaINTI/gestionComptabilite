@@ -23,6 +23,8 @@ public class Societe implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String code;
+	private String libelle;
 
 	@OneToMany(mappedBy = "societe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
@@ -35,6 +37,17 @@ public class Societe implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "adresse", referencedColumnName = "id")
 	private Adresse adresse;
+	
+
+	public Societe(Long id, String code, String libelle, Set<Agence> agences, Groupe groupe, Adresse adresse) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.libelle = libelle;
+		this.agences = agences;
+		this.groupe = groupe;
+		this.adresse = adresse;
+	}
 
 	public Long getId() {
 		return id;
@@ -66,6 +79,23 @@ public class Societe implements Serializable {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	public Societe() {

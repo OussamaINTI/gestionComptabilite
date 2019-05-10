@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: gestionComptabilite
+Implementation-Version: 0.0.1-SNAPSHOT
+<<<<<<< HEAD
+Built-By: IN-TR-013
+=======
+Built-By: IN-TR-003
+>>>>>>> 279e40e18f57fc8d994a52c23f3c70aa16a1092f
+Implementation-Vendor-Id: com.adaming
+Build-Jdk: 1.8.0_201
+Implementation-URL: http://projects.spring.io/spring-boot/gestionCompt
+ abilite/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
