@@ -16,9 +16,21 @@ public class Pays implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String code;
 
 	@OneToMany(mappedBy = "pays")
 	private Set<Gouvernorat> etats = new HashSet<>();
+
+	public Pays() {
+		super();
+	}
+
+	public Pays(String code, Set<Gouvernorat> etats) {
+		super();
+		this.code = code;
+		this.etats = etats;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -36,8 +48,19 @@ public class Pays implements Serializable {
 		this.etats = etats;
 	}
 
-	public Pays() {
-
+	public String getCode() {
+		return code;
 	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	@Override
+	public String toString() {
+		return "Pays [id=" + id + ", code=" + code + ", etats=" + etats + "]";
+	}
+
+
 
 }
