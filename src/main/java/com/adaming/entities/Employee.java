@@ -15,6 +15,8 @@ public class Employee implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String nom;
+	private String prenom;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Agence agence;
