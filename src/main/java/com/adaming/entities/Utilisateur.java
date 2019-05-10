@@ -20,6 +20,8 @@ public class Utilisateur implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String login;
+	private String password;
 
 	@OneToOne
 	private Employee employee;
@@ -29,6 +31,19 @@ public class Utilisateur implements Serializable {
 			@JoinColumn(name = "id_utilisateur", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_role", table = "role", referencedColumnName = "id") })
 	private Set<Role> roles = new HashSet<>();
+	
+
+	public Utilisateur() {
+		super();
+	}
+
+	public Utilisateur(String login, String password, Employee employee, Set<Role> roles) {
+		super();
+		this.login = login;
+		this.password = password;
+		this.employee = employee;
+		this.roles = roles;
+	}
 
 	public Long getId() {
 		return id;
@@ -36,6 +51,22 @@ public class Utilisateur implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Set<Role> getRoles() {
@@ -52,6 +83,12 @@ public class Utilisateur implements Serializable {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", login=" + login + ", password=" + password + ", employee=" + employee
+				+ ", roles=" + roles + "]";
 	}
 
 }
